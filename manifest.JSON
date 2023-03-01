@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Cool Name",
+  "version": "1.0",
+  "description": "unknown",
+  "content_scripts": [
+    {
+    "matches": ["<all_urls>"],
+    "js": ["./main.js"]
+    }
+  ]
+}
