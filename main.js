@@ -1,55 +1,32 @@
-// document.addEventListener('DOMContentLoaded', () => {
 //use queryselectorall to grab node with class yt-core-image -> returns array of nodes
     // .src property gets the image source
     // have src array
 
 function getDogs() {
     const imgList = document.querySelectorAll('.yt-core-image--fill-parent-height, .yt-core-image--fill-parent-width, .yt-core-image, .yt-core-image--content-mode-scale-aspect-fill, .yt-core-image--loaded')
+    // const imgList = document.querySelectorAll('img');
+    console.log(imgList);
     for (let i = 0; i < imgList.length; i++) {   
-        imgList[i].onload = function() {
-            fetch('https://dog.ceo/api/breeds/image/random')
-            // method: "GET",
-            // headers: {
-            //     "Content-Type": "image/png",
-            // },
-        // })
+        fetch('https://dog.ceo/api/breeds/image/random')
         .then(response => response.json())
-        // .then(response => console.log(response))
         .then(response => {
-            // for (let i = 0; i < imgList.length; i++) {
             imgList[i].src = response.message;
-            //     imgList[i].src = response.message;
-            // }
         })
         .catch(error => console.log(error))
     }
-        }
-        
-    //     fetch('https://dog.ceo/api/breeds/image/random')
-    //         // method: "GET",
-    //         // headers: {
-    //         //     "Content-Type": "image/png",
-    //         // },
-    //     // })
-    //     .then(response => response.json())
-    //     // .then(response => console.log(response))
-    //     .then(response => {
-    //         // for (let i = 0; i < imgList.length; i++) {
-    //         imgList[i].src = response.message;
-    //         //     imgList[i].src = response.message;
-    //         // }
-    //     })
-    //     .catch(error => console.log(error))
-    // }
-    // .then(res => res.blob())
-    // .then(blob => console.log(blob))
 }
+
+
+const contents = document.getElementById('contents')
+const thumbnail = document.querySelector('.yt-core-image')
+
+let contentsObserver = new MutationObserver(getDogs);
+contentsObserver.observe(contents, {childList: true})
+
+let thumbnailObserver = new MutationObserver(getDogs);
+thumbnailObserver.observe(thumbnail, {attributes: true})
 
 getDogs();
 // setTimeout(getDogs, 500);
     
 document.addEventListener('click', getDogs)
-
-
-
-// })
