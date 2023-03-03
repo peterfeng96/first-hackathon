@@ -1,7 +1,3 @@
-//use queryselectorall to grab node with class yt-core-image -> returns array of nodes
-    // .src property gets the image source
-    // have src array
-
 function getDogs() {
     const imgList = document.querySelectorAll('.yt-core-image--fill-parent-height, .yt-core-image--fill-parent-width, .yt-core-image, .yt-core-image--content-mode-scale-aspect-fill, .yt-core-image--loaded')
     // const imgList = document.querySelectorAll('img');
@@ -14,19 +10,17 @@ function getDogs() {
         })
         .catch(error => console.log(error))
     }
+    console.log('hi');
 }
 
 
 const contents = document.getElementById('contents')
-const thumbnail = document.querySelector('.yt-core-image')
+// const thumbnail = document.querySelector('.yt-core-image')
 
 let contentsObserver = new MutationObserver(getDogs);
-contentsObserver.observe(contents, {childList: true})
+contentsObserver.observe(contents, {childList: true, subtree: true})
 
-let thumbnailObserver = new MutationObserver(getDogs);
-thumbnailObserver.observe(thumbnail, {attributes: true})
+// let thumbnailObserver = new MutationObserver(getDogs);
+// thumbnailObserver.observe(thumbnail, {attributes: true})
 
-getDogs();
-// setTimeout(getDogs, 500);
-    
-document.addEventListener('click', getDogs)
+// getDogs();

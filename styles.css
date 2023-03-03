@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250px;
+    width: 150px;
+    border: 2px solid black;
+}
+
+.dog-div, .clock-div {
+    display: flex;
+    padding: 10px;
+}
+
+img {
+    width: 40px;
+    height: auto;
+    padding: 10px;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    background-size: 100px 100px;
+    background-color: white;
+    border: 0px;
+
+}
+
+#dogs {
+    background-image: url('images/dog.png');
+}
+
+#multiple {
+    background-image: url('images/clock.png');
+}
+
+.clock-div {
+    border-top: 1px solid black;
+}
+
+Challenges we faced
+	Coming up with a concept - first scrambled thumbnails but not as visually appealing
+	Tried a few different APIs
+	Youtube’s infinite scroll made it hard to replace videos that haven’t been loaded yet - mutation observer

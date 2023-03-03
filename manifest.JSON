@@ -1,12 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Cool Name",
-  "version": "1.0",
-  "description": "unknown",
-  "content_scripts": [
-    {
-    "matches": ["https://www.youtube.com/*"],
-    "js": ["./main.js"]
-    }
-  ]
+  "name": "Best Youtube Experience Pawssible",
+  "version": "2.0",
+  "description": "Ever wanted a cuter time browsing Youtube? Say less",
+  "icons": {
+    "128": "/images/logo.png"
+  },
+  "action": {
+    "default_title": "The only extension you'll ever need",
+    "default_popup": "main.html"
+  },
+  "permissions": ["activeTab", "scripting"]
 }
